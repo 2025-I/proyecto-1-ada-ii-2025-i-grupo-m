@@ -3,9 +3,11 @@ from tkinter import filedialog
 import time 
 
 def file_choose():
+    
     root = tk.Tk()
     root.withdraw()
     return filedialog.askopenfilename()
+
 
 def procesar_entrada_fiesta1():
     """Función con la misma interfaz que la versión dinámica para ser intercambiable"""
