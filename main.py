@@ -5,6 +5,8 @@ from src.palindromo.fuerza_bruta.fuerza_bruta import procesar_entrada_palindromo
 from src.palindromo.voraz.voraz import mainvoraz 
 from src.fiesta.voraz.voraz import main as procesar_entrada_fiesta_voraz
 
+
+
 def main():
     print("=== Proyecto Análisis de Algoritmos II ===")
     print("Seleccione una opción:")
@@ -46,7 +48,8 @@ def main():
     elif opcion == "0":
         print("Saliendo del programa...")
     else:
-        print("Opción inválida. Intente nuevamente.")
+        print("Opción inválida. Intente nuevamente .")
+        print ("\n")
 
     
 
