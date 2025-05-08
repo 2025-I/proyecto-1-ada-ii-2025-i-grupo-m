@@ -75,7 +75,7 @@ def test_fiesta_escalado():
                     tiempo_fb = time.time() - inicio
                     tiempos_fb.append(tiempo_fb)
                 except TimeoutException:
-                    print("⚠️  Fuerza bruta excedió el tiempo límite.")
+                    print("⚠Toco mocahr fuerza bruta")
                     tiempos_fb.append(2.0)
                 finally:
                     signal.alarm(0)
