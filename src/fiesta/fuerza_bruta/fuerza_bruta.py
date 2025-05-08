@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 import time 
+# codigo
 
 def file_choose():
     root = tk.Tk()

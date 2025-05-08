@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import signal
 from datetime import datetime
 import csv
+# codigo
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 from fiesta.dinamica.dinamica import resolver_fiesta as resolver_dinamico
