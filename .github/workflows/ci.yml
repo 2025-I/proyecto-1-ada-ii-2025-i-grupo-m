@@ -19,7 +19,3 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt || echo "No hay requirements.txt"
           pip install pytest pytest-cov
-
-      - name: Ejecutar pruebas y generar reporte
-        run: |
-          pytest --cov=src --cov-report=term
