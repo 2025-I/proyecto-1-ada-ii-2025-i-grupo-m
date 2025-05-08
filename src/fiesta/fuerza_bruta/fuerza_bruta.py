@@ -23,8 +23,7 @@ def procesar_entrada_fiesta1():
             
             print(f"Tiempo de ejecución: {fin - inicio:.6f} segundos\n")
 
-def resolver_fiesta_fuerza_bruta(matriz, valores):
-    """Versión fuerza bruta con misma salida que la dinámica y medición de tiempo"""
+def resolver_fiesta_fuerza_bruta(matriz, valores, retorno=False):
     n = len(matriz)
     max_sum = 0
     best_invitation = [0] * n
@@ -52,4 +51,7 @@ def resolver_fiesta_fuerza_bruta(matriz, valores):
             max_sum = current_sum
             best_invitation = current_inv.copy()
     
-    print(' '.join(map(str, best_invitation)), max_sum)
+    if retorno:
+        return best_invitation, max_sum
+    else:
+        print(' '.join(map(str, best_invitation)), max_sum)
