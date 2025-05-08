@@ -2,9 +2,8 @@ import tkinter as tk
 from tkinter import filedialog
 import time
 import re
-from itertools import combinations
 
-MAX_LENGTH = 20  # Límite práctico para fuerza bruta
+MAX_LENGTH = 20  # Máxima longitud del palíndromo que se intentará encontrar
 
 def file_choose():
     root = tk.Tk()
@@ -12,8 +11,8 @@ def file_choose():
     return filedialog.askopenfilename()
 
 def procesar_entrada_palindromo1():
-    print("\n=== FUERZA BRUTA (limitado a {} caracteres) ===".format(MAX_LENGTH))
-    print("Para cadenas más largas usar método dinámico\n")
+    print("\n=== FUERZA BRUTA (máx. palíndromo de {} caracteres) ===".format(MAX_LENGTH))
+    print("Para palíndromos más largos usar método dinámico\n")
     
     archivo = file_choose()
     if not archivo:
@@ -32,9 +31,6 @@ def procesar_entrada_palindromo1():
             print("Texto original:", cadena[:50] + "..." if len(cadena) > 50 else cadena)
             
             s = normalizar_cadena(cadena)
-            if len(s) > MAX_LENGTH:
-                print(f"¡Atención! Cadena truncada a {MAX_LENGTH} caracteres para fuerza bruta")
-                s = s[:MAX_LENGTH]
             
             inicio = time.time()
             resultado = encontrar_palindromo(s)
@@ -51,25 +47,19 @@ def normalizar_cadena(cadena):
     return re.sub(r'[^a-z0-9]', '', cadena)
 
 def encontrar_palindromo(s):
-    """Versión optimizada con límite de longitud"""
+    """Busca subcadenas consecutivas que sean palíndromos con longitud máxima limitada."""
     n = len(s)
     mejor = ""
     
-    for length in range(min(n, MAX_LENGTH), 0, -1):
-        print(f"Probando longitud {length}...", end='\r')
-        
-        for indices in combinations(range(n), length):
-            sub = ''.join(s[i] for i in indices)
+    for i in range(n):
+        for j in range(i + 1, min(n + 1, i + MAX_LENGTH + 1)):  
+            sub = s[i:j]
             if sub == sub[::-1]:
                 if len(sub) > len(mejor):
                     mejor = sub
                 elif len(sub) == len(mejor):
                     mejor = min(mejor, sub)
-        
-        if mejor and len(mejor) == length:
-            break  # No puede haber uno más largo
     
-    print(" " * 40, end='\r')  # Limpiar línea
     return mejor
 
 if __name__ == "__main__":
