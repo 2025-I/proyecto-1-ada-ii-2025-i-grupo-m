@@ -1,7 +1,6 @@
-# Test Palíndromo
-
+# Test palindromo
 Propósito del Código
-Comparar el rendimiento de tres enfoques algorítmicos para resolver el problema de selección de invitados óptima (Problema del Palindromo):
+Comparar el rendimiento de tres enfoques algorítmicos para resolver el problema de selección de invitados óptima (Problema de la palindromo):
 
 Programación Dinámica
 Fuerza Bruta
