@@ -3,7 +3,7 @@ from tkinter import filedialog
 import time
 import re
 
-MAX_LENGTH = 20  # Máxima longitud del palíndromo que se intentará encontrar
+MAX_LENGTH = 1000  # Máxima longitud del palíndromo que se intentará encontrar
 
 def file_choose():
     root = tk.Tk()
@@ -61,6 +61,12 @@ def encontrar_palindromo(s):
                     mejor = min(mejor, sub)
     
     return mejor
+
+# ✅ Esta función debe estar antes del bloque main
+def palindromo_maximo_fuerza_bruta(cadena):
+    """Función pública para uso en pruebas."""
+    s = normalizar_cadena(cadena)
+    return encontrar_palindromo(s)
 
 if __name__ == "__main__":
     procesar_entrada_palindromo1()
